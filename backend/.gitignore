@@ -1,0 +1,4 @@
+**/embedding_model
+.env
+./api/.env
+**/__pycache__/
