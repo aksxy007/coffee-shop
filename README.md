@@ -63,10 +63,13 @@
 
 
 
+# Tech Stack
 
-
-
-
+### React Native - Front End
+### FastAPI - Backend Api's 
+### LLMs - Llama-3.1-70b-instruct (Using Groq API)
+### MongoDB - For session management , CRUD operations.
+### Docker - For running MongoDB instance.
 
 
 
