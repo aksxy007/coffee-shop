@@ -8,8 +8,19 @@ services:
       MONGO_INITDB_DATABASE: coffeeshop
       MONGO_INITDB_ROOT_USERNAME: atul13062001
       MONGO_INITDB_ROOT_PASSWORD: 12345
+
+  redis:
+    image: redis:alpine
+    container_name: redis_cache
+    ports:
+      - "6380:6379"
+    networks:
+      - app_network
+
     # volumes:
     #   - mongo_data:/data/db
-    
 # volumes:
 #   mongo_data:
+networks:
+  app_network:
+    driver: bridge

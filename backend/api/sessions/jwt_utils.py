@@ -6,6 +6,7 @@ from pydantic import BaseModel
 import os
 
 from db.session_utils import save_session
+from redisManager.redisManager import RedisManager
 # Your secret key for encoding and decoding the JWTs
 SECRET_KEY = os.getenv('SECRET_KEY')
 ALGORITHM = os.getenv('ALGORITHM')
@@ -22,6 +23,11 @@ async def create_access_token(data: dict, expires_delta: Optional[timedelta] = N
     to_encode.update({"exp": expire})
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     await save_session(user_id=data['sub'],token=encoded_jwt,expiry=expire)
+    
+    redisManager = RedisManager()
+    chat_session_id = f"user_{data['sub']}_session"
+    redisManager.set_session_expiry(chat_session_id,expire)
+    
     return encoded_jwt
 
 # Function to verify the JWT and extract the user info

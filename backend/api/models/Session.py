@@ -7,5 +7,4 @@ class Session(BaseModel):
     user_id: str
     token: str
     expiry: datetime
-    chats: List[str]
-    created_at: datetime = datetime.utcnow()
+    created_at: datetime = datetime.now()
