@@ -70,6 +70,7 @@
 ### LLMs - Llama-3.1-70b-instruct (Using Groq API)
 ### MongoDB - For session management , CRUD operations.
 ### Docker - For running MongoDB instance.
+### Redis - Caching Chat history.
 
 
 
